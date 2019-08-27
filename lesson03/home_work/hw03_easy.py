@@ -7,8 +7,8 @@ __author__ = "Дериглазов Егор Дмитриевич"
 # Для решения задачи не используйте встроенные функции и функции из модуля math.
 
 def my_round(number, ndigits):
-    result = round(number,ndigits)
-    return result
+    int_num = int(10*(number**ndigits)+0,5)
+    return int_num/(10*ndigits)
 print(my_round(2.1234567, 5))
 print(my_round(2.1999967, 5))
 print(my_round(2.9999967, 5))
