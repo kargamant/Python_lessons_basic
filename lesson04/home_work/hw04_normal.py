@@ -50,10 +50,10 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
        'uXBqHFjvihuNGEEFsfnMXTfptvIOlhKhyYwxLnqOsBdGvnuyEZIheApQGOXWeXoLWiDQN'\
        'JFaXiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQ'\
        'oiQzTYwZAiRwycdlHfyHNGmkNqSwXUrxGC'
-patter2 = r'[a-z]{2}[A-Z][A-Z]{2}'
+patter2 = r'(?<=[a-z]{2})[A-Z]+(?=[A-Z]{2})'
 res = re.findall(patter2, line_2)
 print(res)
-#Второе и третье решал решал и всё-таки не смог. Поэтому жду урока, чтобы послушать ваше объяснение:)
+#Третье не смог. Жду урока, чтобы послушать ваше объяснение:)
 # Задание-3:
 # Напишите скрипт, заполняющий указанный файл (самостоятельно задайте имя файла)
 # произвольными целыми цифрами, в результате в файле должно быть
@@ -66,7 +66,7 @@ import os
 path = os.path.join('venv', 'test.py')
 f = open(path, 'r', encoding='UTF-8')
 file = open("test.py","w")
-number = 
+number = random.randint(0,1000) in range(2500)
 file.write(number)
 file.close()
 
