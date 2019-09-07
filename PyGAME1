@@ -1,0 +1,36 @@
+__author__ = 'Дериглазов Егор Дмитриевич'
+
+from random import randint
+player = {"name":input("Как вас зовут?\n"),"age":int(input("Сколько вам лет?\n")),"sex":input("Какого вы пола?\n")}
+rusalphabet = ['а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ы','ш','ь','щ','ъ','э','ю','я']
+secretlocnum = [1,6,3,5,2,14,9,10,13,12,15,4,7,8,11,16]
+def gameprocess ():
+    print(f'Привет {player["name"]} !')
+    gamingopinion = input('Любите играть?\n')
+    if gamingopinion == "Да" or "конечно":
+        print("я могу произнести буквы алфавита, которых нет в твоём имени")
+        for itm in rusalphabet:
+            if itm in player['name']:
+                rusalphabet.remove(itm)
+        print (rusalphabet)
+        print('Я задумал 16 чисел от 1 - 16 и расположил их в произвольном порядке в строке. Скажи мне Где какое. ')
+        n = randint(1,16)
+        print(f'Где число {n} ?')
+        print('|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|')
+        box = int(input("Введите индекс яйчейки, не считая палки, в которой лежит это число\n"))
+        for itm in secretlocnum:
+            if n == itm and box == secretlocnum.index(itm):
+                print("Угадал")
+    else:
+        pass
+
+if player["age"] < 18:
+    print("Тебе играть нельзя")
+elif player["age"] >= 18:
+   gameprocess()
+elif player["age"] >=90:
+    difent = input("Вы точно хотите играть?")
+    if difent == 'да':
+        gameprocess()
+    else:
+        pass
