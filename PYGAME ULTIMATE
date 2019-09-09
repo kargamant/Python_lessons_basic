@@ -1,0 +1,44 @@
+__author__ = "Дериглазов Егор Дмитриевич"
+
+import random
+class player:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+    def achivements(self):
+        pass
+class character:
+    def __init__(self, nickname, type, PO, HP, Int):
+        self.nickname = nickname
+        self.type = type
+        self.PO = PO
+        self.HP = HP
+        self.Int = Int
+        self.inventory = []
+    def charactercreate(self):
+        print('Перейдём к созданию персонажа')
+        character.nickname = input('Как будут звать твоего персонажа?\n')
+        print('Теперь надо выбрать класс')
+        print('Есть два класса - маг и воин')
+        print('Воин могущественный и мощный класс, однако не подходит для стратегического боя')
+        print('Маг наоборот обладает внушающим интелектом, но с трудом держит меч в руках')
+        character.type = input('За кого будешь играть?\nмаг/воин\n')
+        if character.type == 'маг':
+            self.PO = 30
+            self.HP = 50
+            self.Int = 80
+            print(f'Ваши характеристики\nмощность {self.PO}\nочки здоровья {self.HP}\nинтелект {self.Int}')
+        elif character.type == 'воин':
+            self.PO = 60
+            self.HP = 80
+            self.Int = 40
+            print(f'Ваши характеристики\nмощность {self.PO}\nочки здоровья {self.HP}\nинтелект {self.Int}')
+        else:
+            None
+print("Добро пожаловать в увлекательный мир PYGAME")
+print('Перед началом игры вам надо пройти регистрацию')
+player.name = input('Введите своё имя:\n')
+player.surname = input('Введите свою фамилию:\n')
+print(f'Приветствую тебя - {player.name} {player.surname}')
+print(character.charactercreate(character))
+print('Вы появились в тёмном лесу.')
