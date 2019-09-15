@@ -1,44 +1,125 @@
 __author__ = "Дериглазов Егор Дмитриевич"
 
-import random
-class player:
-    def __init__(self, name, surname):
-        self.name = name
-        self.surname = surname
-    def achivements(self):
-        pass
-class character:
-    def __init__(self, nickname, type, PO, HP, Int):
-        self.nickname = nickname
-        self.type = type
+import json
+
+class data:
+    pass
+import json
+with open('data.json', 'w', encoding='utf-8') as f:
+json.dump(data, f,)
+
+class map:
+        mapp = [
+            '   |      ',
+            '__   __   ',
+            '       __ ',
+            ' |        ',
+            ' |  __    ',
+            '     1  | ',
+            '__        ',
+            '    ___   ',
+            '        __',
+            '  ___   |  '
+        ]
+        def show_mapp(self):
+            for itm in mapp:
+                print(itm)
+class user:
+    def __init__(self, name, age, character_type, PO, INT, HP):
+        self. name = name
+        self.age = age
+        self.achievements_list = []
+        self.character_type = character_type
         self.PO = PO
+        self.INT = INT
         self.HP = HP
-        self.Int = Int
-        self.inventory = []
-    def charactercreate(self):
-        print('Перейдём к созданию персонажа')
-        character.nickname = input('Как будут звать твоего персонажа?\n')
-        print('Теперь надо выбрать класс')
-        print('Есть два класса - маг и воин')
-        print('Воин могущественный и мощный класс, однако не подходит для стратегического боя')
-        print('Маг наоборот обладает внушающим интелектом, но с трудом держит меч в руках')
-        character.type = input('За кого будешь играть?\nмаг/воин\n')
-        if character.type == 'маг':
-            self.PO = 30
-            self.HP = 50
-            self.Int = 80
-            print(f'Ваши характеристики\nмощность {self.PO}\nочки здоровья {self.HP}\nинтелект {self.Int}')
-        elif character.type == 'воин':
-            self.PO = 60
-            self.HP = 80
-            self.Int = 40
-            print(f'Ваши характеристики\nмощность {self.PO}\nочки здоровья {self.HP}\nинтелект {self.Int}')
-        else:
-            None
-print("Добро пожаловать в увлекательный мир PYGAME")
-print('Перед началом игры вам надо пройти регистрацию')
-player.name = input('Введите своё имя:\n')
-player.surname = input('Введите свою фамилию:\n')
-print(f'Приветствую тебя - {player.name} {player.surname}')
-print(character.charactercreate(character))
-print('Вы появились в тёмном лесу.')
+    def achievements(self):
+        pass
+    def show_stats(self):
+        print(f'Ваша мощность {self.PO}\nваше здоровье {self.HP}\nваш интелект {self.INT}')
+    class inventory:
+        def show_inventory(self):
+            print(self.inventory_list)
+        def remove_items(self):
+            item = input('Какой предмет хотите выбросить?')
+            self.inventory_list.remove(item)
+        def collect_item(self):
+            item = None
+            amount = self.inventory_list.count()
+            if amount == 30:
+                print('Места нет.')
+                print('выкините что-нибудь')
+                self.remove_items(self)
+            else:
+                self.inventory_list.append(item)
+class item:
+    def __init__(self, weight, size, reqPO, reqInt):
+        self.weight = weight
+        self.size = size
+        self.reqPO = reqPO
+        self.reqInt = reqInt
+class sword(item):
+    item.weight = 5
+    item.size = 3
+    item.req = 40
+class coin(item):
+    item.weight = 1
+    item.size = 1
+class wand(item):
+    item.weight = 2
+    item.size = 3
+    item.reqInt = 60
+class red_stone(item):
+    item.weight = 2
+    item.size = 1
+class sekiro(item):
+    item.weight = 7
+    item.size = 5
+    item.reqPO = 50
+class staff(item):
+    item.weight = 3
+    item.size = 5
+    item.reqInt = 50
+class menue:
+    def my_profile(self):
+        print(f'ваше имя {user.name}\n ваш возраст {user.age}\nваши достижения {user.achievements_list}')
+    def changing_name_age(self):
+        nameorage = input('Что хотите поменять?\n')
+        if nameorage == 'имя':
+            new_name = input('Введите новое имя:\n')
+            user.name = new_name
+        elif nameorage == 'возраст':
+            new_age = input('Введите новый возраст:\n')
+            user.age = new_age
+    def registration(self):
+        user.name = input('Введите ваш никнейм:\n')
+        user.age = input('Сколько вам лет:\n')
+        character = input('Кем будет ваш персонаж? маг/воин\n')
+        if character == 'воин':
+            #Была идея сделать через наследование, но не знал, как написать,
+            # что при таком-то выборе наследуется от такого-то класса,
+            # поэтому сделал просто рабочий код
+              user.PO = 60
+              user.INT = 40
+              user.HP = 80
+              user.show_stats(user)
+        elif character == 'маг':
+              user.HP = 50
+              user.INT = 80
+              user.PO = 30
+              user.show_stats(user)
+        input('Вы успешно зарегистрировались\n')
+class actions:
+    def turn_right(self):
+
+
+print('Добро пожаловать в лучшую игру на свете PYGAME')
+print('Чтобы начать игру вам нужно пройти регистрацию и создать персонажа')
+print(menue.registration(menue))
+print('Давным давно с небес упали великие 4 монеты')
+print('Боги сказали, что ты избранный и должен найти и вернуть эти монеты им')
+print('Вы появились на холме...')
+print(map.mapp)
+print('Вы обозначаетесь цифрой 1')
+actions.turn_right(actions)
+print(map.mapp)
