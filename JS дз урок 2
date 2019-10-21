@@ -1,0 +1,101 @@
+1.
+var a = 1, b = 1, c, d;
+c = ++a; alert(c);           // 2, т.к. увеличили переменную a в префиксной форме
+d = b++; alert(d);           // 1, т.к. увеличили b в постфиксной форме
+c = (2+ ++a); alert(c);      // 5, т.к. a увеличилось в начале сложения
+d = (2+ b++); alert(d);      // 4, т.к. b увеличилось после сложения
+alert(a);                    // 3, т.к. значения переменных после инкрементов и декриментов сохраняются
+alert(b);                    // 3, т.к. значения переменных после инкрементов и декриментов сохраняются
+
+2.
+var a = 2;
+var x = 1 + (a *= 2);
+//5
+
+3.
+<script>
+		var a = parseInt(Math.random()* (10 - -10) - 10);
+		var b = parseInt(Math.random() * (10 - -10) - 10);
+		function first(a, b) {
+			alert(a);
+			alert(b);
+			if (a >= 0 && b >= 0) {
+				alert(a-b);
+			}
+			else if (a < 0 && b < 0) {
+				alert(a*b);
+			}
+			else {
+				alert(a + b);
+			}
+		}
+		alert(first(a, b));
+</script>
+
+4. // сделал через цикл
+<script>
+	var a = parseInt(Math.random() * 15);
+	alert(a);
+	function second(a) {
+		for (a; a <= 15; a++) {
+			alert(a);
+		}
+	}
+	alert(second(a));
+</script>
+5.
+<script>
+		var a = 10;
+		var b = 5;
+		function sum(a,b){
+			return a+b;
+		}
+		function minusing(a,b){
+			return a-b;
+		}
+		function division(a,b){
+			return a/b;
+		}
+		function multiplication(a, b){
+			return a*b;
+		}
+		alert(sum(a,b));
+		alert(minusing(a,b));
+		alert(division(a,b));
+		alert(multiplication(a,b));
+</script>
+6.
+<script>
+		var a = 10;
+		var b = 5;
+		function mathOperation(a,b,operation){
+			switch(operation){
+				case 'sum':
+					return(sum(a, b));
+					break
+				case 'minusing':
+					return(minusing(a,b));
+					break
+				case 'division':
+					return(division(a,b));
+					break
+				case 'multiplication':
+					return(multiplication(a,b));
+					break
+				default:
+					alert("ошибка");
+					break
+			}
+		}
+		alert(mathOperation(a,b,'multiplication'));
+</script>
+7.
+alert(null == 0)//выдаёт false, т.к. null это пустое значение
+8.
+<script>
+var a = 10;
+function power(val,pow) {
+	return Math.pow(val, pow);
+	}
+alert(power(a,2));
+</script>
