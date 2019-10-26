@@ -1,0 +1,59 @@
+//1
+function findSimpleNums(range){
+    var i = 0;
+    var g = 1;
+    var k = [];
+    var simplenums = [];
+    while (i<range) {
+        for (g;g<i;g++) {
+            if (i%g == 0) {
+                k.push(g);
+            } else if (i%g > 0) {
+                continue
+            }
+        }
+        if (k.length == 0) {
+            simplenums.push(i);
+        }else {
+            for (var item in k) {
+                k.pop()
+            }
+        }
+        i++
+    }
+    return simplenums
+}
+alert(findSimpleNums(10));
+
+
+//2,3
+
+var basket = {laptop:30000, phone: 20000, airpods:10000};
+var sumlist = 0;
+var i = 0;
+function BasketPriceCount(basket) {
+    for (var key in basket) {
+        if (i == basket.length) {
+            	break
+        }
+        sumlist += basket.key;
+        i++;
+    }
+    return sumlist
+}
+console.log(BasketPriceCount(basket));
+alert(BasketPriceCount(basket));
+
+
+
+//4
+
+<script>
+var i = 0;
+var str = '';
+for (i;i<20;i++) {
+    str += 'x';
+    console.log(str);
+};
+</script>
+ 
