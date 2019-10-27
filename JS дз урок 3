@@ -1,0 +1,150 @@
+//1
+<script>
+		var num = String(parseInt(prompt('Введите число от 0 до 999')));
+		function objNum(num) {
+		var numb = {
+			ed:'',
+			ten:'',
+			hund:''
+		}
+		if (num > 999) {
+			console.log('Значение превышает допустимое, введите другое');
+			return numb
+		}
+		var arnum = num.split('');
+		for (var i in arnum) {
+		var ind = String(arnum.indexOf(i));
+		switch (ind) {
+		case '0':
+			numb.hund = i;
+			break
+		case '1':
+			numb.ten = i;
+			break
+		case '2':
+			numb.ed = i;
+			break
+		}
+		}
+		return numb
+		}
+		console.log(objNum(num));
+	</script>
+  
+  
+  
+  
+  //игра 'Кто хочет стать миллионером'
+  var quiz = {
+	q1:"Какое растение существует на самом деле?",
+	a1_1:"Лох русский",
+	a1_2:"Лох греческий",
+	a1_3:"Лох индийский",//correct
+	a1_4:"Лох чилийский",
+	q2:"Какой город объявлен официальной родиной русского Деда Мороза?",
+	a2_1:"Малая Вишера",
+	a2_2:"Великий Устюг",//correct
+	a2_3:"Вышний Волочек",
+	a2_4:"Нижний Новгород",
+	q3:"Что проводит боксер, наносящий удар противнику снизу?",
+	a3_1:"Апперкот",//correct
+	a3_2:"Свинг",
+	a3_3:"Хук",
+	a3_4:"Джэб"
+}
+var i = '1';
+var corrans = [3,2,1];
+var personcount = 0;
+function wrongAnswer(coranswer){
+	alert('неверный ответ');
+	alert('правильный ответ - '+ quiz.coranswer);
+	i++
+	if (i == 3) {
+		alert('Это конец игры, спасибо за игру');
+		alert('ваш приз '+personcount+' рублей');
+		return undefined
+	}
+	questionProcess(i);
+}
+function correctAnswer() {
+	alert('Правильный ответ! Поздравляю, вы получаете 200000 рублей за него');
+	personcount += 200000;
+	alert('ваш приз '+personcount+' рублей');
+	var conorwin = prompt('Заберете деньги или продолжите?');
+	switch(conorwin) {
+		case 'заберу':
+			alert('Хорошо, спасибо за игру!');
+			alert('ваш приз '+personcount+' рублей');
+			break
+		case 'продолжу':
+			alert('Хорошо, тогда следующий вопрос');
+	}
+	i = parseInt(i);
+	i++
+	if (i == 3) {
+		alert('Это конец игры, спасибо за игру');
+		alert('ваш приз '+personcount+' рублей');
+		return undefined
+	}
+	i = String(i);
+	questionProcess(i);
+}
+function questionProcess(numofq) {
+	switch(numofq){
+		case '1':
+			var q = quiz.q1;
+			var numq = 'первый';
+			var a1 = quiz.a1_1;
+			var a2 = quiz.a1_2;
+			var a3 = quiz.a1_3;
+			var a4 = quiz.a1_4;
+			alert(numq + ' вопрос' + q + '1)'+ a1 + '2)' + a2 + '3)' + a3 + '4)' + a4);
+			var answer = parseInt(prompt('Ваш ответ : '));
+			for (var itm in corrans){
+				if (itm == answer){
+					correctAnswer()
+				} else {
+					wrongAnswer(corrans[0]);
+				}
+			}
+			break;
+		case '2':
+			var q = quiz.q2;
+			var numq = 'второй';
+			var a1 = quiz.a2_1;
+			var a2 = quiz.a2_2;
+			var a3 = quiz.a2_3;
+			var a4 = quiz.a2_4;
+			alert(numq + ' вопрос' + q + '1)'+ a1 + '2)' + a2 + '3)' + a3 + '4)' + a4);
+			var answer = parseInt(prompt('Ваш ответ : '));
+			for (var itm in corrans){
+				if (itm == answer){
+					correctAnswer()
+				} else {
+					wrongAnswer(corrans[0]);
+				}
+			}
+			break;
+		case '3':
+			var q = quiz.q3;
+			var numq = 'третий';
+			var a1 = quiz.a3_1;
+			var a2 = quiz.a3_2;
+			var a3 = quiz.a3_3;
+			var a4 = quiz.a3_4;
+			alert(numq + ' вопрос' + q + '1)'+ a1 + '2)' + a2 + '3)' + a3 + '4)' + a4);
+			var answer = parseInt(prompt('Ваш ответ : '));
+			for (var itm in corrans){
+				if (itm == answer){
+					correctAnswer()
+				} else {
+					wrongAnswer(corrans[0]);
+				}
+			}
+			break;
+	}
+}
+alert("Добро пожаловать в игру кто хочет стать миллионером!");
+alert("Главный приз миллион рублей!");
+alert(questionProcess(i));
+  
