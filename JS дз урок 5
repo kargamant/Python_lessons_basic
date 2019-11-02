@@ -1,0 +1,47 @@
+//Своими силами у меня получилось только воссоздать доску без цифр,букв и фигур
+//html код
+<!DOCTYPE html>
+<html>
+<head>
+	<title>сhess board</title>
+	<link rel="stylesheet" type="text/css" href="script.css">
+</head>
+<body>
+	<table id="chessboard">
+	</table> 
+	<script>
+		var i = '1';
+		var k = 0;
+		var f = 0;
+		for (f;f<8;f++) {
+			var chessboard = document.getElementById("chessboard");
+			var tr = document.createElement("tr");
+			chessboard.appendChild(tr);
+			for (k;k<8;k++){
+				var td = document.createElement("td");
+				if (k%2 > 0 && f%2 == 0) {
+					td.style.background = 'black';
+				} else if (k%2 == 0 && f%2 > 0) {
+					td.style.background = 'black';
+				}
+				tr.appendChild(td);
+				if (k==7) {
+					k = 0;
+					break
+				}
+			}	
+		}
+	</script>
+</body>
+</html>
+//css код
+tr, td{
+	border:1px solid black;
+}
+td{
+	width:20px;
+	height:20px;
+}
+table{
+	border-collapse: collapse;
+}
